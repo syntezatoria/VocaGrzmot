@@ -1,7 +1,7 @@
 <Window x:Class="GrzmotoEditor.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Grzmoto Editor"
+        Title="VocaGrzmot - VOCALOID VOICEBANK EDITOR"
         Icon="/assets/vocagrzmot.png"
         Width="1250"
         Height="790"
