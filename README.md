@@ -60,3 +60,26 @@ Run `VocaGrzmot.cs` in an editor such as Visual Studio.
 1. a ddb and ddi extractor (based on [ain-soph/ddb-extraction](https://github.com/ain-soph/ddb-extraction) and [yuukawahiroshi/ddb-tools](https://github.com/yuukawahiroshi/ddb-tools)) will be added to allow modification of existing voicebanks
 2. .trans and .seg generators similar to [LuciozUndiezz/VocaloidDBTool-SAK](https://github.com/LuciozUndiezz/VocaloidDBTool-SAK) will be added, but [LuciozUndiezz/VocaloidDBTool-SAK](https://github.com/LuciozUndiezz/VocaloidDBTool-SAK) is counter-intuitive as it requires strategic nonstandard otoing that diverges wildly from UTAU and is hard to eyeball, and does not have full triphone timing support. Instead of oto.ini, the .trans and .seg generators here will use grzmoto.json to directly generate .trans and .seg files.
 3. voicebank package to ddb/ddi/vvd format
+
+**I am bad at programming so please make pull requests!**
+**I am bad at programming so please make pull requests!**
+**I am bad at programming so please make pull requests!**
+**I am bad at programming so please make pull requests!**
+**I am bad at programming so please make pull requests!**
+**I am bad at programming so please make pull requests!**
+**I am bad at programming so please make pull requests!**
+**I am bad at programming so please make pull requests!**
+**I am bad at programming so please make pull requests!**
+**I am bad at programming so please make pull requests!**
+**I am bad at programming so please make pull requests!**
+**I am bad at programming so please make pull requests!**
+**I am bad at programming so please make pull requests!**
+**I am bad at programming so please make pull requests!**
+**I am bad at programming so please make pull requests!**
+**I am bad at programming so please make pull requests!**
+**I am bad at programming so please make pull requests!**
+**I am bad at programming so please make pull requests!**
+**I am bad at programming so please make pull requests!**
+**I am bad at programming so please make pull requests!**
+**I am bad at programming so please make pull requests!**
+
