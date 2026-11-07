@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\pieci\\Downloads\\VocaGrzmot_VisualStudio_Fresh\\GrzmotoEditor\\GrzmotoEditor.csproj",
+      "projectUniqueName": "C:\\Users\\pieci\\Downloads\\vocagrzmot\\VocaGrzmot\\GrzmotoEditor.csproj",
       "projectName": "GrzmotoEditor",
-      "projectPath": "C:\\Users\\pieci\\Downloads\\VocaGrzmot_VisualStudio_Fresh\\GrzmotoEditor\\GrzmotoEditor.csproj",
+      "projectPath": "C:\\Users\\pieci\\Downloads\\vocagrzmot\\VocaGrzmot\\GrzmotoEditor.csproj",
       "packagesPath": "C:\\Users\\pieci\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\pieci\\Downloads\\VocaGrzmot_VisualStudio_Fresh\\GrzmotoEditor\\obj\\",
+      "outputPath": "C:\\Users\\pieci\\Downloads\\vocagrzmot\\VocaGrzmot\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\pieci\\AppData\\Roaming\\NuGet\\NuGet.Config",

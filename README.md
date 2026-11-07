@@ -7,6 +7,10 @@ an unofficial Vocaloid devkit that makes Vocaloid-compatible voicebanks in an ea
 
 Please note that the project is still **under active development and not yet finished**. At this stage, the exporter is not fully implemented, and **the tool currently only generates native `grzmoto.json` files**. `grzmoto.json` files are roughly equivalent to `oto.ini` files in function. Vocaloid-compatible export functionality will be introduced in future updates.
 
+## Using the editor
+
+Choose **WAV folder** and select a voicebank folder. The folder's top level may contain WAV audio files and, once saved, one `grzmoto.json` file; other file types are rejected. Open an existing `grzmoto.json` from that folder or create entries, referencing WAV files by filename. Selecting an entry displays its waveform with its timing boundaries overlaid. The waveform viewer supports PCM WAV (8/16/24/32-bit) and IEEE float WAV (32/64-bit).
+
 ```json
 {
   "Sil k a": ["ka.wav", 0, 100, 150, 500],
@@ -105,4 +109,3 @@ Run `VocaGrzmot.cs` in an editor such as Visual Studio.
 **I am bad at programming so please make pull requests!**
 
 **I am bad at programming so please make pull requests!**
-
