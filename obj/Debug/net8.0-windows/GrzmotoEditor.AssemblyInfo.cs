@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GrzmotoEditor")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0ca6f13ae6aa285c5756c762acb068ed2a46619f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1d5b6a2bae57985c11be2411c84c68bf60a7e414")]
 [assembly: System.Reflection.AssemblyProductAttribute("GrzmotoEditor")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GrzmotoEditor")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
