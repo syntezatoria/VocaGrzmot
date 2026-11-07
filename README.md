@@ -57,6 +57,8 @@ For example, given the triphone:
 
 Timestamps must be strictly increasing. `"Sil k a": ["ka.wav", 0, 100, 1000, 5]` is not allowed.
 
+WARNING: The parts of the .wav beyond the defined range will be discarded in Vocaloid, similar to UTAU's Cutoff and Offset. For example, in `"a": ["a.wav", 123, 456],`, the beginning part before the 123 millisecond mark is discarded, and so is whatever comes after the 456 ms mark. Similarly, in `"Sil k a": ["ka.wav", 0, 100, 150, 500]`, anything after the 500 ms mark (whether it's silence, background noise, or extra sounds) is discarded when the raw samples are converted into a Vocaloid-ready voicebank.
+
 ## How to run
 
 Run `VocaGrzmot.cs` in an editor such as Visual Studio.
