@@ -9,7 +9,7 @@ Please note that the project is still **under active development and not yet fin
 
 ## Using the editor
 
-Choose **WAV folder** and select a voicebank folder. The folder's top level may contain WAV audio files and, once saved, one `grzmoto.json` file; other file types are rejected. Open an existing `grzmoto.json` from that folder or create entries, referencing WAV files by filename. Selecting an entry displays its waveform with its timing boundaries overlaid. The waveform viewer supports PCM WAV (8/16/24/32-bit) and IEEE float WAV (32/64-bit).
+Choose **WAV folder** and select a voicebank folder. The folder's top level may contain WAV audio files and, once saved, one `grzmoto.json` file; other file types are rejected. Open an existing `grzmoto.json` from that folder or create entries, referencing WAV files by filename. Selecting an entry displays its waveform with its timing boundaries overlaid; drag a vertical boundary marker to reposition it, and the timing field updates as you drag. Enter timing values separated by semicolons so decimal commas work with localized number formats (for example, `0,5; 1,5; 2`). Existing comma-separated values with decimal points are still accepted. The waveform viewer supports PCM WAV (8/16/24/32-bit) and IEEE float WAV (32/64-bit).
 
 ```json
 {
@@ -22,7 +22,7 @@ Choose **WAV folder** and select a voicebank folder. The folder's top level may 
 
 ## How `grzmoto.json` Works
 
-The `grzmoto.json` file serves as the configuration backbone for the voicebank, functioning similarly to the traditional `oto.ini` file found in UTAU/OpenUTAU, but modernized into a clean, easy-to-parse JSON structure. 
+The `grzmoto.json` file serves as the configuration backbone for the voicebank, functioning similarly to the traditional `oto.ini` file found in UTAU/OpenUTAU, but modernized into a clean, easy-to-parse JSON structure that is better designed for Vocaloid.
 
 It maps phonetic aliases to specific audio files and precise timing parameters (in milliseconds) required for proper waveform synthesis.
 

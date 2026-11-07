@@ -18,6 +18,7 @@ public partial class MainWindow : Window
     private string? voicebankDirectory;
     private Entry? selected;
     private WaveformData? waveform;
+    private int draggingBoundary = -1;
 
     public MainWindow()
     {
@@ -47,7 +48,7 @@ public partial class MainWindow : Window
 
         AliasBox.Text = selected.Alias;
         AudioBox.Text = selected.Audio;
-        TimingBox.Text = string.Join(", ", selected.Timings);
+        TimingBox.Text = FormatTimings(selected.Timings);
         CurrentAlias.Text = selected.Alias;
         UpdateTimeline();
         LoadSelectedWaveform();
@@ -241,10 +242,7 @@ public partial class MainWindow : Window
 
         try
         {
-            var timings = TimingBox.Text
-                .Split(',', StringSplitOptions.TrimEntries | StringSplitOptions.RemoveEmptyEntries)
-                .Select(s => double.Parse(s, System.Globalization.CultureInfo.InvariantCulture))
-                .ToList();
+            var timings = ParseTimings(TimingBox.Text);
             var candidate = new Entry(AliasBox.Text.Trim(), AudioBox.Text.Trim(), timings);
             Validate(candidate);
             if (voicebankDirectory is not null)
@@ -262,7 +260,7 @@ public partial class MainWindow : Window
             selected = updatedEntry;
             AliasBox.Text = updatedEntry.Alias;
             AudioBox.Text = updatedEntry.Audio;
-            TimingBox.Text = string.Join(", ", updatedEntry.Timings);
+            TimingBox.Text = FormatTimings(updatedEntry.Timings);
             CurrentAlias.Text = updatedEntry.Alias;
             UpdateTimeline();
             LoadSelectedWaveform();
@@ -287,6 +285,27 @@ public partial class MainWindow : Window
         ClearInspector();
         StatusText.Text = "Unsaved changes";
     }
+
+    private static List<double> ParseTimings(string text)
+    {
+        var culture = System.Globalization.CultureInfo.CurrentCulture;
+        var delimiter = text.Contains(';') ? ';' : ',';
+        return text.Split(delimiter, StringSplitOptions.TrimEntries)
+            .Select(value =>
+            {
+                if (double.TryParse(value, System.Globalization.NumberStyles.Float, culture, out var timing) ||
+                    double.TryParse(value, System.Globalization.NumberStyles.Float,
+                        System.Globalization.CultureInfo.InvariantCulture, out timing))
+                    return timing;
+
+                throw new FormatException($"'{value}' is not a valid timing value.");
+            })
+            .ToList();
+    }
+
+    private static string FormatTimings(IEnumerable<double> timings) =>
+        string.Join("; ", timings.Select(timing =>
+            timing.ToString("G", System.Globalization.CultureInfo.CurrentCulture)));
 
     private void Save_Click(object sender, RoutedEventArgs e)
     {
@@ -363,6 +382,75 @@ public partial class MainWindow : Window
     }
 
     private void WaveformCanvas_SizeChanged(object sender, SizeChangedEventArgs e) => DrawWaveform();
+
+    private void WaveformCanvas_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+    {
+        if (selected is null || waveform is null || waveform.DurationMilliseconds <= 0 ||
+            WaveformCanvas.ActualWidth <= 0)
+            return;
+
+        draggingBoundary = -1;
+        var pointerX = e.GetPosition(WaveformCanvas).X;
+        var closestDistance = 12d;
+        for (var i = 0; i < selected.Timings.Count; i++)
+        {
+            var markerX = Math.Clamp(
+                selected.Timings[i] / waveform.DurationMilliseconds * WaveformCanvas.ActualWidth,
+                0,
+                WaveformCanvas.ActualWidth);
+            var distance = Math.Abs(pointerX - markerX);
+            if (distance < closestDistance)
+            {
+                closestDistance = distance;
+                draggingBoundary = i;
+            }
+        }
+
+        if (draggingBoundary < 0)
+            return;
+
+        WaveformCanvas.CaptureMouse();
+        WaveformCanvas.Cursor = System.Windows.Input.Cursors.SizeWE;
+        e.Handled = true;
+    }
+
+    private void WaveformCanvas_MouseMove(object sender, System.Windows.Input.MouseEventArgs e)
+    {
+        if (draggingBoundary < 0 || !WaveformCanvas.IsMouseCaptured ||
+            selected is null || waveform is null || waveform.DurationMilliseconds <= 0)
+            return;
+
+        var pointerX = Math.Clamp(e.GetPosition(WaveformCanvas).X, 0, WaveformCanvas.ActualWidth);
+        var newTiming = pointerX / WaveformCanvas.ActualWidth * waveform.DurationMilliseconds;
+        var lower = draggingBoundary == 0 ? 0 : selected.Timings[draggingBoundary - 1];
+        var upper = draggingBoundary == selected.Timings.Count - 1
+            ? waveform.DurationMilliseconds
+            : selected.Timings[draggingBoundary + 1];
+        var gap = upper - lower;
+        if (gap <= 0)
+            return;
+
+        var minimumGap = Math.Min(0.01, gap / 4);
+        selected.Timings[draggingBoundary] = Math.Clamp(
+            newTiming,
+            lower + minimumGap,
+            upper - minimumGap);
+        TimingBox.Text = FormatTimings(selected.Timings);
+        UpdateTimeline();
+        DrawWaveform();
+        StatusText.Text = "Unsaved changes";
+    }
+
+    private void WaveformCanvas_MouseLeftButtonUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
+    {
+        if (draggingBoundary < 0)
+            return;
+
+        draggingBoundary = -1;
+        WaveformCanvas.Cursor = System.Windows.Input.Cursors.Arrow;
+        WaveformCanvas.ReleaseMouseCapture();
+        e.Handled = true;
+    }
 
     private void DrawWaveform()
     {

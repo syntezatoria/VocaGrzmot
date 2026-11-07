@@ -1,3 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup><OutputType>WinExe</OutputType><TargetFramework>net8.0-windows</TargetFramework><UseWPF>true</UseWPF><StartupObject>GrzmotoEditor.VocaGrzmot</StartupObject><Nullable>enable</Nullable><ImplicitUsings>enable</ImplicitUsings></PropertyGroup>
+  <ItemGroup>
+    <Resource Include="assets\vocagrzmot.png" />
+  </ItemGroup>
 </Project>

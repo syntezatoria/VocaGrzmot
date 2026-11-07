@@ -35,3 +35,8 @@ C:\Users\pieci\Downloads\vocagrzmot\VocaGrzmot\bin\Debug\net8.0-windows\GrzmotoE
 C:\Users\pieci\Downloads\vocagrzmot\VocaGrzmot\bin\Debug\net8.0-windows\GrzmotoEditor.pdb
 C:\Users\pieci\Downloads\vocagrzmot\VocaGrzmot\obj\Debug\net8.0-windows\GrzmotoEditor.genruntimeconfig.cache
 C:\Users\pieci\Downloads\vocagrzmot\VocaGrzmot\obj\Debug\net8.0-windows\ref\GrzmotoEditor.dll
+C:\Users\pieci\AppData\Local\Temp\VocaGrzmot-Icon-Build\GrzmotoEditor.exe
+C:\Users\pieci\AppData\Local\Temp\VocaGrzmot-Icon-Build\GrzmotoEditor.deps.json
+C:\Users\pieci\AppData\Local\Temp\VocaGrzmot-Icon-Build\GrzmotoEditor.runtimeconfig.json
+C:\Users\pieci\AppData\Local\Temp\VocaGrzmot-Icon-Build\GrzmotoEditor.dll
+C:\Users\pieci\AppData\Local\Temp\VocaGrzmot-Icon-Build\GrzmotoEditor.pdb
