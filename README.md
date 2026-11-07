@@ -9,6 +9,8 @@ Please note that the project is still **under active development and not yet fin
 
 ## Using the editor
 
+Use the tabs at the top to switch between the Grzmoto Editor and two placeholder pages marked **COMING SOON**.
+
 Choose **WAV folder** and select a voicebank folder. The folder's top level may contain WAV audio files and, once saved, one `grzmoto.json` file; other file types are rejected. Open an existing `grzmoto.json` from that folder or create entries, referencing WAV files by filename. Selecting an entry displays its waveform with its timing boundaries overlaid; drag a vertical boundary marker to reposition it, and the timing field updates as you drag. Enter timing values separated by semicolons so decimal commas work with localized number formats (for example, `0,5; 1,5; 2`). Existing comma-separated values with decimal points are still accepted. The waveform viewer supports PCM WAV (8/16/24/32-bit) and IEEE float WAV (32/64-bit).
 
 ```json
@@ -92,7 +94,6 @@ Run `VocaGrzmot.cs` in an editor such as Visual Studio.
 **I am bad at programming so please make pull requests!**
 
 **I am bad at programming so please make pull requests!**
-
 
 **I am bad at programming so please make pull requests!**
 
