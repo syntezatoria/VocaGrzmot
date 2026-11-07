@@ -51,6 +51,8 @@ For example, given the triphone:
 *   **150:** The timestamp where `k` ends and the `a` phoneme begins.
 *   **500:** The timestamp marking the definitive end of the `a` phoneme segment.
 
+Timestamps must be strictly increasing. `"Sil k a": ["ka.wav", 0, 100, 1000, 5]` is not allowed.
+
 ## How to run
 
 Run `VocaGrzmot.cs` in an editor such as Visual Studio.
