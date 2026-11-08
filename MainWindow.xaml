@@ -333,7 +333,7 @@
                                Text="Ready · no file loaded"
                                Foreground="#9D9DB5"/>
                     <TextBlock Grid.Column="1"
-                               Text="GRZMOTO.JSON  •  C# / WPF"
+                               Text="VocaGrzmot  •  a VOCALOID-compatible open-source voicebank editor"
                                Foreground="#766F92"/>
                 </Grid>
             </Grid>
