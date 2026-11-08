@@ -298,6 +298,7 @@
                                        FontWeight="Bold"
                                        Margin="0,0,0,22"/>
                             <TextBlock Text="Phonetic alias (Vocaloid phoneme format, not hiragana or ARPAbet)"
+                                       TextWrapping="Wrap"
                                        Margin="0,0,0,7"/>
                             <TextBox x:Name="AliasBox"/>
                             <TextBlock Text="Audio file" Margin="0,18,0,7"/>
