@@ -1,5 +1,5 @@
 # VocaGrzmot
-an unofficial Vocaloid devkit that makes Vocaloid-compatible voicebanks in an easy and intuitive way.
+an unofficial Vocaloid devkit that makes Vocaloid-compatible voicebanks in an easy and intuitive way. Its goal is to let developers build voicebanks for the actual VOCALOID synthesis engine.
 
 ## Current Status & Roadmap
 
@@ -27,6 +27,13 @@ Choose **WAV folder** and select a voicebank folder. The folder's top level may 
 The `grzmoto.json` file serves as the configuration backbone for the voicebank, functioning similarly to the traditional `oto.ini` file found in UTAU/OpenUTAU, but modernized into a clean, easy-to-parse JSON structure that is better designed for Vocaloid.
 
 It maps phonetic aliases to specific audio files and precise timing parameters (in milliseconds) required for proper waveform synthesis.
+
+## Why choose `grzmoto.json` over `oto.ini`?
+
+* **Native Vocaloid design:** `grzmoto.json` was designed specifically with Vocaloid in mind. In contrast, `oto.ini` was created for UTAU and does not map well to Vocaloid architecture.
+* **1:1 Parameter matching:** Parameters in `grzmoto.json` match **1:1 to actual internal Vocaloid voicebank settings**. These settings directly dictate which recording is used for which sound in Vocaloid.
+* **No clunky workarounds:** Existing `oto.ini`-to-Vocaloid scripts (like `oto2seg`) typically hijack standard oto-rules (e.g. repurposing preutterance and overlap for Vocaloid consonants that are hard to label *"by ear"*, or imposing strict rules on how to place preutterance, overlap, and offset relative to each other). This makes them unintuitive and difficult to use. 
+
 
 ### Structure Breakdown
 
@@ -65,11 +72,28 @@ WARNING: The parts of the .wav beyond the defined range will be discarded in Voc
 
 Run `VocaGrzmot.cs` in an editor such as Visual Studio.
 
+## Scripts
+
+The `scripts` folder contains subfolders:
+
+**ddb-extraction** - based on [ain-soph/ddb-extraction](https://github.com/ain-soph/ddb-extraction)
+
+**ddb-tools** - based on [yuukawahiroshi/ddb-tools](https://github.com/yuukawahiroshi/ddb-tools)
+
+**VocaloidDBTool-SAK** - based on [LuciozUndiezz/VocaloidDBTool-SAK](https://github.com/LuciozUndiezz/VocaloidDBTool-SAK)
+
+
+
+Credit to [ain-soph](https://github.com/ain-soph), [yuukawahiroshi](https://github.com/yuukawahiroshi), and [LuciozUndiezz](https://github.com/LuciozUndiezz) for making these scripts.
+
+The scripts are unused in the current version. Future updates will use them to add new functionality to VocaGrzmot and hopefully make functional VOCALOID voicebanks.
+
 ## Future implementations
 
 1. a ddb and ddi extractor (based on [ain-soph/ddb-extraction](https://github.com/ain-soph/ddb-extraction) and [yuukawahiroshi/ddb-tools](https://github.com/yuukawahiroshi/ddb-tools)) will be added to allow modification of existing voicebanks
 2. .trans and .seg generators similar to [LuciozUndiezz/VocaloidDBTool-SAK](https://github.com/LuciozUndiezz/VocaloidDBTool-SAK) will be added, but [LuciozUndiezz/VocaloidDBTool-SAK](https://github.com/LuciozUndiezz/VocaloidDBTool-SAK) is counter-intuitive as it requires strategic nonstandard otoing that diverges wildly from UTAU and is hard to eyeball, and does not have full triphone timing support. Instead of oto.ini, the .trans and .seg generators here will use grzmoto.json to directly generate .trans and .seg files.
 3. voicebank package to ddb/ddi/vvd format
+4. scripts located in the scripts folder will be used for the voicebank making function.
 
 **I am bad at programming so please make pull requests!**
 
