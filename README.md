@@ -1,3 +1,5 @@
+![VocaGrzmot](assets/vocagrzmot.png)
+
 # VocaGrzmot
 an unofficial Vocaloid devkit that makes Vocaloid-compatible voicebanks in an easy and intuitive way. Its goal is to let developers build voicebanks for the actual VOCALOID synthesis engine.
 
